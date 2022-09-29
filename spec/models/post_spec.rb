@@ -33,5 +33,23 @@ RSpec.describe Post, type: :model do
         end
           
     end
+
+    context 'methods the check for comments and like increament' do
+        it 'calling the post_counter increases the postcounter by 1' do
+            expect(@post.PostsCounter).to eq(1)
+            @post.post_counter
+            expect(@post.PostsCounter).to eq(2)
+        end
+
+        it 'should display the recent comments' do
+            
+        end
+    end
+
+    context 'Associations' do
+        it { should have_many(:comments) }
+        it { should have_many(:likes) }
+        it { should belong_to(:user) }
+    end
 end
 
