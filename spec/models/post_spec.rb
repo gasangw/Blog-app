@@ -42,7 +42,20 @@ RSpec.describe Post, type: :model do
         end
 
         it 'should display the recent comments' do
-            
+            comments = []
+            (1..6).each do |c|
+                comments << Comment.create(
+                user: @user,
+                post: @post,
+                Text: 'Have made the #{c} comment'    
+                )
+                sleep(0.125)
+            end
+            comments[4].created_at = DateTime.now + 2.hour
+            comments[4].save
+            recent_five_comments = @post.recent_comments
+            expect(recent_five_comments.count).to eq(5)
+            expect(recent_five_comments.first).to eq(comments[4])
         end
     end
 

@@ -71,4 +71,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'ffi'
+   gem 'shoulda-matchers', '~> 5.0'
 end

@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
             Name: 'Thomas', 
             Photo: 'https://unsplash.com/photos/F_-0BxGuVvo', 
             Bio: 'Teacher from Mexico.',
-            PostsCounter: 2     
+            PostsCounter: 0     
         )
     end
 
