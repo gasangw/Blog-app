@@ -11,7 +11,7 @@ RSpec.describe 'Posts', type: %w[request] do
     @post.save
   end
 
-  describt 'GET /index' do
+  describe 'GET /index' do
     it 'renders the index template' do
       get '/post/'
       expect(response.status).to eq(200)
