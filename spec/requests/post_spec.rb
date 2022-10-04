@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts', type: %w[request feature] do
+RSpec.describe 'Posts', type: %w[request] do
   before :each do
     @post = Post.new(
       Title: 'Great Efforts yield Great Results',
@@ -11,25 +11,34 @@ RSpec.describe 'Posts', type: %w[request feature] do
     @post.save
   end
 
-  it 'renders the index template' do
-    get '/post/'
-    expect(response.status).to eq(200)
-    expect(response).to render_template('index')
+  describt 'GET /index' do
+    it 'renders the index template' do
+      get '/post/'
+      expect(response.status).to eq(200)
+      expect(response).to render_template('index')
+      expect(response.body).to include('Here is a list of all user')
+    end
   end
 
-  it 'renders the show template' do
-    get "/post/#{@post.id}"
-    expect(response.status).to eq(200)
-    expect(response).to render_template('show')
+  describe 'GET /show' do
+    it 'renders the show template' do
+      get "/post/#{@post.id}"
+      expect(response.status).to eq(200)
+      expect(response).to render_template('show')
+    end
   end
 
-  it 'renders the index template with the right text' do
-    visit '/post/'
-    expect(page).to have_text('Here is a list of posts for a given user')
+  describe 'VISIT/ index' do
+    it 'renders the index template with the right text' do
+      visit '/post/'
+      expect(page).to have_text('Here is a list of posts for a given user')
+    end
   end
 
-  it 'renders the show template with the text' do
-    visit "/show/#{@post.id}"
-    expect(page).to have_text('Here is a list of posts for a given user')
+  describe 'VISIT/ show' do
+    it 'renders the show template with the text' do
+      visit "/show/#{@post.id}"
+      expect(page).to have_text('Here is a list of posts for a given user')
+    end
   end
 end
