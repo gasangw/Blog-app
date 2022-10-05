@@ -1,1 +1,15 @@
-<p>Here is a list of posts for a given user</p>
+<header>
+  <h1>Post By <%= @post.user.Name %></h1>
+  <span>Comments: <%= @post.CommentsCounter %>,</span>
+  <span>Likes: <%= @post.LikesCounter %></span>
+  <hr/>
+</header>
+
+<p><%= @post.Text %><p>
+<%= form_with url: user_post_likes_path(@post.user, @post), method: :post do |p| %>
+  <%= p.submit 'Liked post' %>
+<% end %>
+<% @post.comments.each do |comment| %>
+  <p><%= comment.user.Name %>: <%=comment.Text %></p>
+<%end%>
+<%= link_to 'Add a comment', new_user_post_comment_url(@post.user, @post)  %>
