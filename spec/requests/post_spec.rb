@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe 'Posts', type: %w[request] do
   before :each do
