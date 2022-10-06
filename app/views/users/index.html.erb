@@ -1,5 +1,5 @@
-<div>
-    <h1>Users Count <%= @user.length%></h1>
+<div class="container">
+    <h1 class="use">Users Count <%= @user.length%></h1>
     <% @user.each do |user| %>
         <%= link_to user_path(user.id), class:"textArea" do %>
         <div>
