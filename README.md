@@ -44,4 +44,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project (MIT)[] is licensed.
+This project is [MIT](./LICENSE) licensed.
