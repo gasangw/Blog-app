@@ -1,6 +1,6 @@
 <div class="container">
-    <h1 class="use">Users Count <%= @user.length%></h1>
-    <% @user.each do |user| %>
+    <h1 class="use">Users Count <%= @users.length%></h1>
+    <% @users.each do |user| %>
         <%= link_to user_path(user.id), class:"textArea" do %>
         <div>
             <img src=<%= user.Photo %> alt=<%= user.Name %> class="img" />
