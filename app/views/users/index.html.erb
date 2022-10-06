@@ -1,0 +1,14 @@
+<div class="container">
+    <h1 class="use">Users Count <%= @users.length%></h1>
+    <% @users.each do |user| %>
+        <%= link_to user_path(user.id), class:"textArea" do %>
+        <div>
+            <img src=<%= user.Photo %> alt=<%= user.Name %> class="img" />
+            <div>
+                <h2><%= user.Name %></h2>
+                <p>Number of Posts: <%= user.PostsCounter %></p>
+            </div>
+        </div>
+        <% end%>
+    <% end %>
+</div>
