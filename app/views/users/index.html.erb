@@ -3,7 +3,7 @@
     <% @user.each do |user| %>
         <%= link_to user_path(user.id), class:"textArea" do %>
         <div>
-            <img class="img" src=<%= user.Photo %> alt=<%= user.Name %>/>
+            <img src=<%= user.Photo %> alt=<%= user.Name %> class="img" />
             <div>
                 <h2><%= user.Name %></h2>
                 <p>Number of Posts: <%= user.PostsCounter %></p>
