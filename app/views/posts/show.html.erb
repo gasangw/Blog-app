@@ -13,7 +13,7 @@
         </div>
           
             <% @comments.each do |comment|%>
-                <h3><%= comment.user.Name %><%= comment.Text %></h3>
+                <h3><%= comment.Text %></h3>
             <% end %>
     </div>
          <%= render partial: "add_comments", local: { post: @post } %>
