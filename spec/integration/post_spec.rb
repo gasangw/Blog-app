@@ -46,13 +46,7 @@ RSpec.describe 'post index/#html', type: :feature do
 
         it 'I can see a section for pagination if there are more posts than fit on the view.' do
             expect(page).to have_content('Pagination')
-        end
-
-        # it 'When I click on a post, it redirects me to that posts show page.' do 
-        #     click_link(@tom_post.Title)
-        #     expect(page).to have_current_path(user_posts_path(@tom))
-        # end
-        
+        end        
     end
 
     context 'posts show/#html' do
@@ -78,13 +72,10 @@ RSpec.describe 'post index/#html', type: :feature do
     it 'I can see the post body' do
         expect(page).to have_content('I love learning')
     end
+
     it 'I can see the username of each commentor.' do
         expect(page).to have_content('Gasa')
     end
-    # it 'I can see the comment each commentor left' do
-    #     comment = @eric_post.comments[0];
-    #     expect(page).to have_content('I love what you are becoming')
-    # end
     end
 end
 
