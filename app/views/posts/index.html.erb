@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <% @post.each do |post| %>
+    <% @post.includes(:comments).each do |post| %>
         <div>
             <h2>Post : <%= post.id %></h2>
             <p><%= post.Text %></p>
