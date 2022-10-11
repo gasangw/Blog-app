@@ -55,7 +55,37 @@ RSpec.describe 'post index/#html', type: :feature do
         
     end
 
-   
+    context 'posts show/#html' do
+    before :each do
+        @eric = User.create(Name: 'Gasa', Photo: 'https://www.google.com', Bio: 'Software', PostsCounter: 1 )
+        @eric_post = Post.create( user: @eric, Title: 'Developer', Text: 'I love learning', LikesCounter: 8,
+                CommentsCounter: 1 )
+        Comment.create(Text:'I love what you are becoming', user:@eric, post:@eric_post)
+    end
+    before(:example) { visit user_path(@eric) }
+    it 'I can see the post title.' do
+        expect(page).to have_content('Developer')
+    end
+    it 'I can see who wrote the post.' do
+        expect(page).to have_content('Gasa')
+    end
+    it 'I can see how many comments it has' do
+        expect(page).to have_content('Comments: 2')
+    end
+    it 'I can see how many likes it has.' do
+        expect(page).to have_content('Likes: 8')
+    end
+    it 'I can see the post body' do
+        expect(page).to have_content('I love learning')
+    end
+    it 'I can see the username of each commentor.' do
+        expect(page).to have_content('Gasa')
+    end
+    # it 'I can see the comment each commentor left' do
+    #     comment = @eric_post.comments[0];
+    #     expect(page).to have_content('I love what you are becoming')
+    # end
+    end
 end
 
  
