@@ -13,7 +13,11 @@
 
 - Install rails app 
     rails new project
- 
+-Run the app
+     rails s
+- Open your default browser and run
+    http://127.0.0.1:3000
+
 - Create a repository
 - clone it using git@github.com:gasangw/Blog-app.git
 

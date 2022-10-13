@@ -1,0 +1,47 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading-part {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+input {
+  width: 80%;
+  height: 2.6rem;
+  gap: 1rem;
+  border-radius: 0.3rem;
+}
+
+label:nth-child(-n+3) {
+  margin-left: -4rem;
+}
+
+#remember {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+input#user_remember_me {
+  width: 10%;
+  height: 1rem;
+  margin-top: 2rem;
+  margin-left: 4.8rem;
+}
+
+a {
+  text-decoration: none;
+  margin-left: 4.8rem;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
