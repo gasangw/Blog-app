@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def new
     @comment = Comment.new
   end
@@ -12,18 +13,6 @@ class CommentsController < ApplicationController
       redirect_to user_post_path(current_user, @post.id)
     else
       render :new, alert: 'Error occured!'
-    end
-  end
-
-  def remove_comment
-    @post = Post.includes(:comments).find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
-    @comment.destroy
-    @post.comment_counter -= 1
-    @post.save
-
-    respond_to do |format|
-      format.html { redirect_to(user_posts_url) }
     end
   end
 
