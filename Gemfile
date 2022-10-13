@@ -53,6 +53,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'devise'
+  gem 'cancancan'
   gem 'rspec-rails'
 end
 
