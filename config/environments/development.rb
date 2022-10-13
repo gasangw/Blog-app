@@ -65,11 +65,24 @@ Rails.application.configure do
   # Annotate rendered view with file names.
  
  # config.action_view.annotate_rendered_view_with_filenames = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   
   config.action_mailer.perform_caching = false
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    user_name:      'mahawafelix@gmail.com',
+    password:       'rrpvazslazuiecxz',
+    domain:         'gmail.com',
+    address:       'smtp.gmail.com',
+    port:          '587',
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+  
 end
