@@ -55,6 +55,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'devise'
   gem 'rspec-rails'
+  gem 'rubocop-rails'
 end
 
 group :development do
@@ -73,7 +74,6 @@ group :test do
   gem 'capybara'
   gem 'ffi'
   gem 'rubocop-performance'
-  gem 'rubocop-rails'
   gem 'rubocop-rspec'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 5.0'
