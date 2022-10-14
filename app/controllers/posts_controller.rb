@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user,
             @comments = @post.comments
+    render json: @post
   end
 
   def create
