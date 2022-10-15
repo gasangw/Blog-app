@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :likes
   has_many :comments
+
   before_validation :default_values
 
   validates :Name, presence: true

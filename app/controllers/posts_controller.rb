@@ -21,9 +21,9 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html do
         if @post_new.save
-          redirect_to "/users/#{@post_new.user_id}/posts/", message: 'Success'
+          redirect_to "/users/#{@post_new.user_id}/posts/", notice: 'Success'
         else
-          render :new, alert: 'Error occured please check again!'
+          render :new, status: :unprocessable_entity
         end
       end
     end
