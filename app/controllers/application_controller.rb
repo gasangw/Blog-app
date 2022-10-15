@@ -1,9 +1,8 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
   # before_action :authenticate_user!
-  protect_from_forgery with: :exception
+  protect_from_forgery unless: -> { request.format.json? }
+
   before_action :update_allowed_parameters, if: :devise_controller?
-  
-  before_action :authenticate_with_token
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
@@ -16,12 +15,5 @@ class ApplicationController < ActionController::API
     devise_parameter_sanitizer.permit(:account_update) do |u|
       u.permit(:Name, :Bio, :Photo, :email, :password, :current_password)
     end
-  end
-
-  def authenticate_with_token
-  if params[:api_token]
-    user = User.find_by_api_token(params[:api_token])
-    sign_in(user)
-  end
   end
 end

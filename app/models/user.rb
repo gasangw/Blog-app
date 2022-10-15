@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :posts
   has_many :likes
   has_many :comments
-  after_create :generate_api_token
 
   before_validation :default_values
 
@@ -19,11 +18,5 @@ class User < ApplicationRecord
 
   def recent_posts
     Post.limit(3).order(created_at: :desc)
-  end
-
-  private
-  def generate_api_token
-    self.api_token = Devise.friendly_token
-    self.save
   end
 end

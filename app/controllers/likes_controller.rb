@@ -8,7 +8,7 @@ class LikesController < ApplicationController
     )
 
     if like.save
-      redirect_to "/users/#{@post.user_id}/posts/#{@post.id}", message: 'Successfully liked the post'
+      redirect_to "/users/#{@post.user_id}/posts/#{@post.id}", notice: 'Successfully liked the post'
     else
       redirect_to "/users/#{@post.user_id}", alert: 'Error has occured'
     end
