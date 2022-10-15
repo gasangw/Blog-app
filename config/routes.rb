@@ -14,4 +14,18 @@ Rails.application.routes.draw do
       resources :comments, only:[:create, :new]
     end
   end
+
+  resources :users do
+    member do
+      get 'api_token'
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :posts do
+        resources :comments
+      end
+    end
+  end
 end
