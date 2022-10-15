@@ -1,4 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
+  protect_from_forgery with: :null_session
   def index
     comment = Comment.find(params[:id])
     render json: comment
